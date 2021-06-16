@@ -1,0 +1,19 @@
+---
+import Markdown from 'astro/components';
+import Page from '../layouts/page.astro';
+
+let title = 'Blog';
+let description = 'All the articles posted so far...';
+---
+
+<Page content={{ title, description }}>
+    <Markdown>
+        This is bunch of articles we've posted and linked so far about the island architecture, SPA fatigue and Astro.
+
+        [Introducing Astro](post/introducing-astro)
+
+        [Second-guessing the modern web](/post/spa-fatigue)
+
+        [Islands Architecture](/post/islands-architecture)
+    </Markdown>
+</Page>
