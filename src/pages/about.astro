@@ -4,6 +4,7 @@ import Page from '../layouts/page.astro';
 
 let title = 'About';
 let description = 'There\'s a simple secret to building a faster website — just ship less.';
+let names = ['john', 'jammie', 'janardhan'];
 ---
 
 <Page content={{ title, description }}>
@@ -12,21 +13,22 @@ let description = 'There\'s a simple secret to building a faster website — jus
 
     <Markdown>
         ## Team of Great Bots
-        <div class="flex justify-center gap-4">
-            <img width="160" src="https://avatars.dicebear.com/api/bottts/john.svg" title="John" />
-            <img width="160" src="https://avatars.dicebear.com/api/bottts/jammie.svg" title="Jammie" />
-            <img width="160" src="https://avatars.dicebear.com/api/bottts/janardhan.svg" title="Janardhan" />
-        </div>
     </Markdown>
+    <div class="flex justify-center gap-4">
+        {names.map((name) => (
+            <img width="160" src={`https://avatars.dicebear.com/api/bottts/${name}.svg`} title={name} />
+        ))}
+    </div>
+
 
     <Markdown>
         ## Meta-Humans
-        <div class="flex justify-center gap-4">
-            <img width="160" src="https://avatars.dicebear.com/api/avataaars/john.svg" title="John" />
-            <img width="160" src="https://avatars.dicebear.com/api/avataaars/jammie.svg" title="Jammie" />
-            <img width="160" src="https://avatars.dicebear.com/api/avataaars/janardhan.svg" title="Janardhan" />
-        </div>
     </Markdown>
+    <div class="flex justify-center gap-4">
+        {names.map((name) => (
+            <img width="160" src={`https://avatars.dicebear.com/api/avataaars/${name}.svg`} title={name} />
+        ))}
+    </div>
 
     <Markdown>
         ## & a Guy!

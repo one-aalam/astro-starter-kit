@@ -4,16 +4,29 @@ import Page from '../layouts/page.astro';
 
 let title = 'Blog';
 let description = 'All the articles posted so far...';
+
+let postBaseUrl = 'post/'
+let posts = [
+    {
+        title: 'Introducing Astro',
+        slug: 'introducing-astro'
+    },
+    {
+        title: 'Second-guessing the modern web',
+        slug: 'spa-fatigue'
+    },
+    {
+        title: 'Islands Architecture',
+        slug: 'islands-architecture'
+    },
+]
 ---
 
 <Page content={{ title, description }}>
     <Markdown>
         This is bunch of articles we've posted and linked so far about the island architecture, SPA fatigue and Astro.
-
-        [Introducing Astro](post/introducing-astro)
-
-        [Second-guessing the modern web](/post/spa-fatigue)
-
-        [Islands Architecture](/post/islands-architecture)
     </Markdown>
+    {posts.map((post) => (
+        <a class="block text-2xl mb-4" href={`${postBaseUrl}${post.slug}`} title={post.title}>{post.title}</a>
+    ))}
 </Page>
