@@ -1,11 +1,11 @@
 ---
 import Markdown from 'astro/components';
 import Page from '../layouts/page.astro';
+import BlogPreview from '../components/BlogPreview.astro'
 
 let title = 'Blog';
 let description = 'All the articles posted so far...';
 
-let postBaseUrl = 'post/'
 let posts = [
     {
         title: 'Introducing Astro',
@@ -27,6 +27,6 @@ let posts = [
         This is bunch of articles we've posted and linked so far about the island architecture, SPA fatigue and Astro.
     </Markdown>
     {posts.map((post) => (
-        <a class="block text-2xl mb-4" href={`${postBaseUrl}${post.slug}`} title={post.title}>{post.title}</a>
+        <BlogPreview post={post}/>
     ))}
 </Page>

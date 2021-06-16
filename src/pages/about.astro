@@ -1,6 +1,7 @@
 ---
 import Markdown from 'astro/components';
 import Page from '../layouts/page.astro';
+import Avatar from '../components/Avatar.astro';
 
 let title = 'About';
 let description = 'There\'s a simple secret to building a faster website — just ship less.';
@@ -16,7 +17,7 @@ let names = ['john', 'jammie', 'janardhan'];
     </Markdown>
     <div class="flex justify-center gap-4">
         {names.map((name) => (
-            <img width="160" src={`https://avatars.dicebear.com/api/bottts/${name}.svg`} title={name} />
+            <Avatar name={name} avatarType="bottts" />
         ))}
     </div>
 
@@ -26,14 +27,14 @@ let names = ['john', 'jammie', 'janardhan'];
     </Markdown>
     <div class="flex justify-center gap-4">
         {names.map((name) => (
-            <img width="160" src={`https://avatars.dicebear.com/api/avataaars/${name}.svg`} title={name} />
+            <Avatar name={name} avatarType="avataaars" />
         ))}
     </div>
 
     <Markdown>
         ## & a Guy!
         <div class="flex justify-center">
-            <img class="rounded-full" width="160" src="https://pbs.twimg.com/profile_images/1378583612925206534/1BxJ61E0_400x400.jpg" title="John" />
+            <img class="rounded-full" width="160" src="https://pbs.twimg.com/profile_images/1378583612925206534/1BxJ61E0_400x400.jpg" title="Aalam" />
         </div>
     </Markdown>
 </Page>

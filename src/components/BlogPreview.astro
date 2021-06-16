@@ -1,0 +1,5 @@
+---
+let postBaseUrl = 'post/'
+export let post;
+---
+<a class="block text-2xl mb-4" href={`${postBaseUrl}/${post.slug}`} title={post.title}>{post.title}</a>
