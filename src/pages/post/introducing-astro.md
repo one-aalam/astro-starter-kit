@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/post.astro
 title: Introducing Astro - Ship Less JavaScript
 date: 2021-06-08
 image: https://astro.build/social.png

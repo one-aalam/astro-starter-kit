@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Astro - Note</title>
+        <meta name="description" content="Fast websites with less Javascript!"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge"  />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="msapplication-config" content="/browserconfig.xml"/>
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Link to the global style, or the file that imports TailwindCSS constructs -->
+        <link rel="stylesheet" href="/style/global.css">
+    </head>
+    <body class="font-sans antialiased">
+        <main class="w-full h-screen mx-auto relative px-2 sm:px-6 lg:px-8">
+            <br class="my-4"/>
+            <header>
+                <!-- header goes here -->
+            </header>
+            <br class="my-4"/>
+            <div class="container">
+                <article class="mx-auto prose lg:prose-xl">
+                    <slot />
+                </article>
+            </div>
+            <br class="my-4"/>
+            <footer>
+                <!-- footer goes here -->
+            </footer>
+        </main>
+    </body>
+</html>
