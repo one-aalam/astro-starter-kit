@@ -1,10 +1,13 @@
+---
+export let content;
+---
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Astro - Note</title>
-        <meta name="description" content="Fast websites with less Javascript!"/>
+        <title>Astro - Note {content.title && `| ${content.title}`}</title>
+        <meta name="description" content={content.description}/>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -20,17 +23,38 @@
     </head>
     <body class="font-sans antialiased">
         <main class="w-full h-screen mx-auto relative px-2 sm:px-6 lg:px-8">
+            <!-- spacer -->
             <br class="my-4"/>
+
             <header>
                 <!-- header goes here -->
             </header>
+
+            <!-- spacer -->
             <br class="my-4"/>
             <div class="container">
                 <article class="mx-auto prose lg:prose-xl">
+                    <img class=" shadow-inner border-8 border-gray-100" src={content.image} alt={content.title} />
+
+                    <!-- post: frontmatter -->
+                    <h5 class="text-center text-gray-400">{
+                        new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))
+                    }</h5>
+                    <h1 class="text-center text-gray-700">{content.title}</h1>
+                    <h5 class="text-center text-gray-500"> By {content.author} &nbsp;<a href={`https://twitter.com/${content.authorTwitter}`} title={`${content.author}'s twitter`} target="_blank" rel="external">@{content.authorTwitter}</a></h5>
+
+                    <!-- post: separator -->
+                    <hr />
+
+                    <!-- post: content -->
                     <slot />
+
                 </article>
             </div>
+
+            <!-- spacer -->
             <br class="my-4"/>
+
             <footer>
                 <!-- footer goes here -->
             </footer>
