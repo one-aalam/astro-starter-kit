@@ -1,38 +1,43 @@
----
-import Tour from '../components/Tour.astro';
----
-
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Astro</title>
+    <title>Astro - Note</title>
+    <meta name="description" content="Fast websites with less Javascript!"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge"  />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/browserconfig.xml"/>
+    <meta name="theme-color" content="#ffffff" />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
+    <!-- Link to the global style, or the file that imports TailwindCSS constructs -->
     <link rel="stylesheet" href="/style/global.css">
-    <link rel="stylesheet" href="/style/home.css">
-
-    <style>
-        header {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-            max-width: min(100%, 68ch);
-        }
-    </style>
 </head>
-<body>
-    <main>
-        <header>
-            <div>
-                <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
-                <h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
-            </div>
+<body class="font-sans antialiased">
+    <main class="w-full h-screen mx-auto relative px-2 sm:px-6 lg:px-8">
+        <br class="my-4"/>
+        <header class="w-full flex flex-col align-middle items-center p-8">
+            <img width="100" height="80" src="/assets/logo.svg" alt="Astro logo">
+            <h1 class="text-6xl">Yay! You're on <a class="font-semibold" href="https://astro.build/">Astro</a>&nbsp;<small class="inline-block px-2 py-1 bg-green-400 text-white rounded-md uppercase">Note</small></h1>
         </header>
-
-        <Tour />
+        <div class="container">
+            <!-- rest of the content goes here... -->
+            <br class="my-4"/>
+            <article class="mx-auto prose lg:prose-xl text-center">
+                <img class="mx-auto" width="640" src="/assets/yay.svg" alt="Astro logo">
+                <br class="my-4"/>
+                <h1>Introducing Astro: Ship Less JavaScript</h1>
+                <p class="line-clamp-2 md:line-clamp-none">
+                    A new kind of static site builder that delivers lightning-fast performance with a modern developer experience.
+                </p>
+            </article>
+            <br class="my-4"/>
+        </div>
     </main>
 </body>
 </html>
