@@ -2,10 +2,10 @@
 import Markdown from 'astro/components';
 import Page from '../layouts/page.astro';
 import AvatarList from '../components/AvatarList.astro';
+import TEAM from '../data/team.json';
 
 const title = 'About';
 const description = 'There\'s a simple secret to building a faster website — just ship less.';
-const names = ['john', 'jammie', 'janardhan'];
 ---
 
 <Page content={{ title, description }}>
@@ -14,13 +14,13 @@ const names = ['john', 'jammie', 'janardhan'];
 
     <Markdown>
         ## Team of Great Bots
-        <AvatarList names={names} avatarType="bottts" />
+        <AvatarList names={TEAM} avatarType="bottts" />
     </Markdown>
 
 
     <Markdown>
         ## Meta-Humans
-        <AvatarList names={names} avatarType="avataaars" />
+        <AvatarList names={TEAM} avatarType="avataaars" />
     </Markdown>
 
     <Markdown>

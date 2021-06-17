@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Introducing Astro",
+        "slug": "introducing-astro"
+    },
+    {
+        "title": "Second-guessing the modern web",
+        "slug": "spa-fatigue"
+    },
+    {
+        "title": "Islands Architecture",
+        "slug": "islands-architecture"
+    }
+]

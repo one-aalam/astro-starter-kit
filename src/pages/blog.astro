@@ -2,29 +2,15 @@
 import Markdown from 'astro/components';
 import Page from '../layouts/page.astro';
 import BlogPreviewList from '../components/BlogPreviewList.astro'
+import POSTS from '../data/posts.json';
 
 let title = 'Blog';
 let description = 'All the articles posted so far...';
-
-const posts = [
-    {
-        title: 'Introducing Astro',
-        slug: 'introducing-astro'
-    },
-    {
-        title: 'Second-guessing the modern web',
-        slug: 'spa-fatigue'
-    },
-    {
-        title: 'Islands Architecture',
-        slug: 'islands-architecture'
-    },
-]
 ---
 
 <Page content={{ title, description }}>
     <Markdown>
         This is bunch of articles we've posted and linked so far about the island architecture, SPA fatigue and Astro.
     </Markdown>
-    <BlogPreviewList posts={posts} />
+    <BlogPreviewList posts={POSTS} />
 </Page>
