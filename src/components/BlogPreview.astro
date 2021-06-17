@@ -1,4 +1,10 @@
 ---
 export let post;
 ---
+<img class=" shadow-inner border-8 border-gray-100" src={post.image} alt={post.title} />
 <a class="block text-2xl mb-4" href={post.url} title={post.title}>{post.title}</a>
+<p>{post.description}</p>
+<h5 class="text-center text-gray-400">{
+    new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(post.date))
+}</h5>
+<h5 class="text-center text-gray-500"> By {post.author} &nbsp;<a href={`https://twitter.com/${post.authorTwitter}`} title={`${post.author}'s twitter`} target="_blank" rel="external">@{post.authorTwitter}</a></h5>
