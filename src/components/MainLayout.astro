@@ -1,0 +1,27 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Nav from './Nav.astro';
+---
+<BaseLayout>
+    <!-- spacer -->
+    <br class="my-4"/>
+
+    <header class="w-full flex items-center justify-end gap-3 mb-12 px-32">
+        <Nav />
+    </header>
+
+    <!-- spacer -->
+    <br class="my-4"/>
+    <div class="container">
+        <article class="mx-auto prose lg:prose-xl">
+            <slot />
+        </article>
+    </div>
+
+    <!-- spacer -->
+    <br class="my-4"/>
+
+    <footer>
+        <!-- footer goes here -->
+    </footer>
+</BaseLayout>

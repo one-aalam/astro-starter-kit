@@ -1,6 +1,7 @@
 ---
+import MainLayout from '../components/MainLayout.astro';
 import BaseHead from '../components/BaseHead.astro';
-import Nav from '../components/Nav.astro';
+
 export let content;
 ---
 <!doctype html>
@@ -12,42 +13,22 @@ export let content;
         />
     </head>
     <body class="font-sans antialiased">
-        <main class="w-full h-screen mx-auto relative px-2 sm:px-6 lg:px-8">
-            <!-- spacer -->
-            <br class="my-4"/>
+        <MainLayout>
+            <img class=" shadow-inner border-8 border-gray-100" src={content.image} alt={content.title} />
 
-            <header class="w-full flex items-center justify-end gap-3 mb-12 px-32">
-                <Nav />
-            </header>
+            <!-- post: frontmatter -->
+            <h5 class="text-center text-gray-400">{
+                new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))
+            }</h5>
+            <h1 class="text-center text-gray-700">{content.title}</h1>
+            <h5 class="text-center text-gray-500"> By {content.author} &nbsp;<a href={`https://twitter.com/${content.authorTwitter}`} title={`${content.author}'s twitter`} target="_blank" rel="external">@{content.authorTwitter}</a></h5>
 
-            <!-- spacer -->
-            <br class="my-4"/>
-            <div class="container">
-                <article class="mx-auto prose lg:prose-xl">
-                    <img class=" shadow-inner border-8 border-gray-100" src={content.image} alt={content.title} />
+            <!-- post: separator -->
+            <hr />
 
-                    <!-- post: frontmatter -->
-                    <h5 class="text-center text-gray-400">{
-                        new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(new Date(content.date))
-                    }</h5>
-                    <h1 class="text-center text-gray-700">{content.title}</h1>
-                    <h5 class="text-center text-gray-500"> By {content.author} &nbsp;<a href={`https://twitter.com/${content.authorTwitter}`} title={`${content.author}'s twitter`} target="_blank" rel="external">@{content.authorTwitter}</a></h5>
+            <!-- post: content -->
+            <slot />
 
-                    <!-- post: separator -->
-                    <hr />
-
-                    <!-- post: content -->
-                    <slot />
-
-                </article>
-            </div>
-
-            <!-- spacer -->
-            <br class="my-4"/>
-
-            <footer>
-                <!-- footer goes here -->
-            </footer>
-        </main>
+        </MainLayout>
     </body>
 </html>

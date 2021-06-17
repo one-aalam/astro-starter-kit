@@ -1,6 +1,7 @@
 ---
+import MainLayout from '../components/MainLayout.astro';
 import BaseHead from '../components/BaseHead.astro';
-import Nav from '../components/Nav.astro';
+
 export let content;
 ---
 <!doctype html>
@@ -12,41 +13,19 @@ export let content;
         />
     </head>
     <body class="font-sans antialiased">
-        <main class="w-full h-screen mx-auto relative px-2 sm:px-6 lg:px-8">
-            <!-- spacer -->
-            <br class="my-4"/>
+        <MainLayout>
+            <!-- page: frontmatter -->
 
-            <header class="w-full flex items-center justify-end gap-3 mb-12 px-32">
-                <!-- header goes here -->
-                <Nav />
-            </header>
+            <h1 class="text-center text-gray-700">{content.title}</h1>
+            <h5 class="text-center text-gray-500">{content.description}</h5>
 
-            <!-- spacer -->
-            <br class="my-4"/>
-            <div class="container">
-                <article class="mx-auto prose lg:prose-xl">
+            <!-- post: separator -->
+            <hr />
 
-                    <!-- page: frontmatter -->
-
-                    <h1 class="text-center text-gray-700">{content.title}</h1>
-                    <h5 class="text-center text-gray-500">{content.description}</h5>
-
-                    <!-- post: separator -->
-                    <hr />
-
-                    <!-- post: content -->
-                    <section class="text-center">
-                        <slot />
-                    </section>
-                </article>
-            </div>
-
-            <!-- spacer -->
-            <br class="my-4"/>
-
-            <footer>
-                <!-- footer goes here -->
-            </footer>
-        </main>
+            <!-- post: content -->
+            <section class="text-center">
+                <slot />
+            </section>
+        </MainLayout>
     </body>
 </html>

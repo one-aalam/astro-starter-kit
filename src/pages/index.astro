@@ -1,4 +1,5 @@
 ---
+import BaseLayout from '../components/BaseLayout.astro';
 import BaseHead from '../components/BaseHead.astro';
 import Nav from '../components/Nav.astro';
 import Intro from '../components/Intro.astro';
@@ -10,7 +11,7 @@ import Intro from '../components/Intro.astro';
     <BaseHead title="Astro - Note" description="Ship fast, deliver quick with less or no Javascript" />
 </head>
 <body class="font-sans antialiased">
-    <main class="w-full h-screen mx-auto relative px-2 sm:px-6 lg:px-8">
+    <BaseLayout>
         <br class="my-4"/>
         <header class="w-full flex flex-col align-middle items-center p-8">
             <img width="100" height="80" src="/assets/logo.svg" alt="Astro logo">
@@ -24,6 +25,6 @@ import Intro from '../components/Intro.astro';
             <Intro />
             <br class="my-4"/>
         </div>
-    </main>
+    </BaseLayout>
 </body>
 </html>
