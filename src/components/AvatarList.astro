@@ -1,0 +1,10 @@
+---
+import Avatar from './Avatar.astro';
+export let names;
+export let avatarType;
+---
+<div class="flex justify-center gap-4">
+    {names.map((name) => (
+        <Avatar name={name} avatarType={avatarType} />
+    ))}
+</div>

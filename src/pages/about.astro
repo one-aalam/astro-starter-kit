@@ -1,7 +1,7 @@
 ---
 import Markdown from 'astro/components';
 import Page from '../layouts/page.astro';
-import Avatar from '../components/Avatar.astro';
+import AvatarList from '../components/AvatarList.astro';
 
 const title = 'About';
 const description = 'There\'s a simple secret to building a faster website — just ship less.';
@@ -14,27 +14,24 @@ const names = ['john', 'jammie', 'janardhan'];
 
     <Markdown>
         ## Team of Great Bots
+        <AvatarList names={names} avatarType="bottts" />
     </Markdown>
-    <div class="flex justify-center gap-4">
-        {names.map((name) => (
-            <Avatar name={name} avatarType="bottts" />
-        ))}
-    </div>
 
 
     <Markdown>
         ## Meta-Humans
+        <AvatarList names={names} avatarType="avataaars" />
     </Markdown>
-    <div class="flex justify-center gap-4">
-        {names.map((name) => (
-            <Avatar name={name} avatarType="avataaars" />
-        ))}
-    </div>
 
     <Markdown>
         ## & a Guy!
-        <div class="flex justify-center">
-            <img class="rounded-full" width="160" src="https://pbs.twimg.com/profile_images/1378583612925206534/1BxJ61E0_400x400.jpg" title="Aalam" />
+        <div class="flex flex-col justify-center">
+            <div class="flex justify-center">
+                <img class="rounded-full" width="160" src="https://pbs.twimg.com/profile_images/1378583612925206534/1BxJ61E0_400x400.jpg" title="Aalam" />
+            </div>
+            <Markdown>
+                Aftab Alam / **[@aftabbuddy](https://twitter.com/aftabbuddy)** / [one-aalam](https://github.com/one-aalam)
+            </Markdown>
         </div>
     </Markdown>
 </Page>

@@ -1,7 +1,7 @@
 ---
 import Markdown from 'astro/components';
 import Page from '../layouts/page.astro';
-import BlogPreview from '../components/BlogPreview.astro'
+import BlogPreviewList from '../components/BlogPreviewList.astro'
 
 let title = 'Blog';
 let description = 'All the articles posted so far...';
@@ -26,7 +26,5 @@ const posts = [
     <Markdown>
         This is bunch of articles we've posted and linked so far about the island architecture, SPA fatigue and Astro.
     </Markdown>
-    {posts.map((post) => (
-        <BlogPreview post={post}/>
-    ))}
+    <BlogPreviewList posts={posts} />
 </Page>

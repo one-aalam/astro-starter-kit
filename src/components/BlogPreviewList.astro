@@ -1,0 +1,8 @@
+---
+import BlogPreview from './BlogPreview.astro';
+
+export let posts;
+---
+{posts.map((post) => (
+    <BlogPreview post={post}/>
+))}
