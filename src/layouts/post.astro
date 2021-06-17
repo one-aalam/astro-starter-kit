@@ -1,25 +1,15 @@
 ---
+import BaseHead from '../components/BaseHead.astro';
+import Nav from '../components/Nav.astro';
 export let content;
 ---
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Astro - Note {content.title && `| ${content.title}`}</title>
-        <meta name="description" content={content.description}/>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge"  />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="msapplication-config" content="/browserconfig.xml"/>
-        <meta name="theme-color" content="#ffffff" />
-
-        <!-- Link to the global style, or the file that imports TailwindCSS constructs -->
-        <link rel="stylesheet" href="/style/global.css">
+        <BaseHead
+            title={content.title ? `Astro - Note | ${content.title}` : 'Astro - Note'}
+            description={content.description}
+        />
     </head>
     <body class="font-sans antialiased">
         <main class="w-full h-screen mx-auto relative px-2 sm:px-6 lg:px-8">
@@ -27,19 +17,7 @@ export let content;
             <br class="my-4"/>
 
             <header class="w-full flex items-center justify-end gap-3 mb-12 px-32">
-                <nav>
-                    <ul class="inline-flex list-none gap-4 text-xl font-semibold text-purple-500">
-                        <li>
-                            <a href="/" title="home">Home</a>
-                        </li>
-                        <li>
-                            <a href="/blog" title="blog">Blog</a>
-                        </li>
-                        <li>
-                            <a href="/about" title="about">About</a>
-                        </li>
-                    </ul>
-                </nav>
+                <Nav />
             </header>
 
             <!-- spacer -->

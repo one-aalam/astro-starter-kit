@@ -1,0 +1,30 @@
+---
+import { toTitleCase } from '../utils'
+export let skip: keyof typeof navItems;
+const navItems = {
+    home: {
+        path: '/',
+        title: 'home'
+    },
+    blog: {
+        path: '/blog',
+        title: 'blog'
+    },
+    about: {
+        path: '/about',
+        title: 'about'
+    }
+}
+
+const shouldSkip = (navItemKey) => navItems[navItemKey] && navItemKey === skip
+---
+
+<nav class="nav">
+    <ul class="inline-flex list-none gap-4 text-xl font-semibold text-purple-500">
+        {
+            Object.keys(navItems).map(navItemKey => !shouldSkip(navItemKey) && <li>
+                <a href={navItems[navItemKey].path} title={navItems[navItemKey].title}>{toTitleCase(navItems[navItemKey].title)}</a>
+            </li>)
+        }
+    </ul>
+</nav>
