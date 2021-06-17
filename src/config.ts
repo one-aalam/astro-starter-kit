@@ -9,6 +9,10 @@ export const NAV_ITEMS: NavItems = {
         path: '/blog',
         title: 'blog'
     },
+    podcast: {
+        path: '/podcast',
+        title: 'podcast'
+    },
     about: {
         path: '/about',
         title: 'about'

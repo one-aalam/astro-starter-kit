@@ -1,0 +1,8 @@
+---
+import Podcast from './Podcast.astro';
+
+export let podcasts;
+---
+{podcasts.map((podcast) => (
+    <Podcast podcast={podcast}/>
+))}

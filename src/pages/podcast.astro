@@ -1,0 +1,14 @@
+---
+import Markdown from 'astro/components';
+import Page from '../layouts/page.astro';
+import PodcastList from '../components/PodcastList.astro'
+
+let title = 'Podcast';
+let description = 'All the podcast categories we scraped and liked :-)';
+
+const resp = await fetch('https://raw.githubusercontent.com/ghosh/awesome-podcasts/master/podcasts.json').then(res => res.json());
+---
+
+<Page content={{ title, description }}>
+    <PodcastList podcasts={resp.podcasts} />
+</Page>
