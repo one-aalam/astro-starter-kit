@@ -2,15 +2,17 @@
 import Markdown from 'astro/components';
 import Page from '../layouts/page.astro';
 import BlogPreviewList from '../components/BlogPreviewList.astro'
-import POSTS from '../data/posts.json';
+// import POSTS from '../data/posts.json';
 
 let title = 'Blog';
 let description = 'All the articles posted so far...';
+
+const posts = Astro.fetchContent('./post/*.md'); // returns an array of posts that live at ./src/pages/post/*.md
 ---
 
 <Page content={{ title, description }}>
     <Markdown>
         This is bunch of articles we've posted and linked so far about the island architecture, SPA fatigue and Astro.
     </Markdown>
-    <BlogPreviewList posts={POSTS} />
+    <BlogPreviewList posts={posts} />
 </Page>
