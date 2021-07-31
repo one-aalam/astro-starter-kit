@@ -1,0 +1,29 @@
+---
+import Markdown from 'astro/components';
+import Page from '../layouts/page.astro';
+import BlogPreviewList from '../components/BlogPreviewList.astro'
+
+let title = 'All Tags';
+let description = 'All the tags applied so far...';
+
+
+const allPosts = await Astro.fetchContent('./post/*.md');
+const tags = [...new Set([].concat.apply([], allPosts.map(post => post.tags)))]
+---
+
+<Page content={{ title, description }}>
+    <Markdown>
+        The articles we've posted are linked so far under
+    </Markdown>
+    <ul class="tag-list">
+     {tags.map((tag) => (
+        <li><a class="tag" href={`/tags/${tag}`} title={`View posts tagged under "${tag}"`}>{tag}</a></li>
+    ))}
+    </ul>
+</Page>
+
+<style>
+    .tag-list {
+        @apply list-none flex gap-2
+    }
+</style>

@@ -1,0 +1,50 @@
+---
+import Markdown from 'astro/components';
+import Page from '../layouts/page.astro';
+import BlogPreviewList from '../components/BlogPreviewList.astro'
+
+let title = 'Posts by Categories';
+let description = 'All the articles posted so far...';
+
+export async function createCollection() {
+  const allPosts = Astro.fetchContent('./post/*.md');
+  const categories = new Set()
+  allPosts.map(post => categories.add(post.category.toLowerCase()))
+
+  return {
+    paginate: true,
+    route: `/category/:category?/:page?`,
+    paths() {
+      return Array.from(categories).map((category, i) => ({params: { category }}));
+    },
+    async props({ params, paginate }) {
+      return {
+          category: params?.category || 'all',
+          collection: paginate(
+              params.category ?
+              allPosts.filter((post) => post.category.toLowerCase() === params.category) :
+              allPosts,
+            {
+                pageSize: 2
+            }
+         )
+      }
+    },
+  };
+}
+
+const { collection, category } = Astro.props
+---
+
+<Page content={{ title, description, image: collection.data[0].image }}>
+    <Markdown>
+        This is a bunch of articles we've posted and linked so far under __{category}__.
+    </Markdown>
+    <BlogPreviewList posts={collection.data} />
+    <hr class="my-1" />
+    <div class="pagination">
+            {collection.url.prev && <a href={collection.url.prev} title="previous">&larr; &nbsp; Previous</a>}
+            {collection.url.next && <a href={collection.url.next} title="next">Next&nbsp; &rarr;</a>}
+    </div>
+    <br/>
+</Page>
