@@ -1,9 +1,14 @@
 ---
-import Avatar from './Avatar.astro';
-const { names, avatarType } = Astro.props
+import Avatar from './Avatar.svelte';
+export type Props = {
+    names: string
+    avatarType: string
+    visible: boolean
+}
+const { names, avatarType, visible = false } = Astro.props
 ---
 <div class="flex justify-center gap-4">
     {names.map((name) => (
-        <Avatar name={name} avatarType={avatarType} />
+        visible ? <Avatar client:visible name={name} avatarType={avatarType} /> : <Avatar client:load name={name} avatarType={avatarType} />
     ))}
 </div>

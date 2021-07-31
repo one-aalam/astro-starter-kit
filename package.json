@@ -7,11 +7,14 @@
     "build": "astro build"
   },
   "devDependencies": {
+    "@snowpack/plugin-typescript": "^1.2.1",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
     "astro": "^0.18.5",
-    "tailwindcss": "^2.1.4"
+    "svelte-preprocess": "^4.7.4",
+    "tailwindcss": "^2.1.4",
+    "typescript": "^4.3.5"
   }
 }
