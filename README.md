@@ -1,6 +1,4 @@
-# Welcome to [Astro](https://astro.build)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+# Welcome to [Astro](https://astro.build) Starter Kit
 
 ## 🚀 Project Structure
 
@@ -9,19 +7,24 @@ Inside of your Astro project, you'll see the following folders and files:
 ```
 /
 ├── public/
-│   ├── robots.txt
-│   └── favicon.ico
+│   ├── assets/
+|   |-- style/
+│   └── favicon.ico and other files
 ├── src/
 │   ├── components/
-│   │   └── Tour.astro
+│   │   └── BlogPreview.astro, Podcast.astro, and other such components
 │   └── pages/
-│       └── index.astro
+│   |   └── index.astro, and other pages
+│   └── layouts/
+│       └── page.astro, and other layout components
+│   └── data/
+│       └── static data files (json)
 └── package.json
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+There's nothing special about `src/components/`, but that's where any Astro/React/Vue/Svelte/Preact components could be found.
 
 Any static assets, like images, can be placed in the `public/` directory.
 
