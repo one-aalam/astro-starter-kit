@@ -1,7 +1,11 @@
 ---
 import { toTitleCase } from '../utils'
 import { NAV_ITEMS, SiteNavItem } from '../config'
-export let skip: SiteNavItem;
+
+export type Props = {
+    skip: SiteNavItem
+}
+const { skip } = Astro.props
 
 const shouldSkip = (navItemKey) => NAV_ITEMS[navItemKey] && navItemKey === skip
 ---

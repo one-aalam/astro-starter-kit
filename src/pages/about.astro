@@ -1,5 +1,5 @@
 ---
-import Markdown from 'astro/components';
+import { Markdown } from 'astro/components';
 import Page from '../layouts/page.astro';
 import AvatarList from '../components/AvatarList.astro';
 import TEAM from '../data/team.json';
@@ -14,14 +14,17 @@ const description = 'There\'s a simple secret to building a faster website — j
 
     <Markdown>
         ## Team of Great Bots
-        <AvatarList names={TEAM} avatarType="bottts" />
     </Markdown>
+    <AvatarList names={TEAM} avatarType="bottts" />
+
 
 
     <Markdown>
         ## Meta-Humans
-        <AvatarList names={TEAM} avatarType="avataaars" />
     </Markdown>
+    <AvatarList names={TEAM} avatarType="avataaars" />
+
+
 
     <Markdown>
         ## & a Guy!

@@ -1,5 +1,5 @@
 ---
-export let post;
+const { post } = Astro.props
 ---
 <img class=" shadow-inner border-8 border-gray-100" src={post.image} alt={post.title} />
 <a class="block text-2xl mb-4" href={post.url} title={post.title}>{post.title}</a>

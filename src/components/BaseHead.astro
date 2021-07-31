@@ -1,8 +1,12 @@
 ---
-export let title: string = 'Astro - Note';
-export let description: string = '';
-export let permalink: string = '';
-export let image: string = '';
+export type Props = {
+    title: string
+    description: string
+    permalink: string
+    image: string
+}
+
+const { title = 'Astro - Note', description, permalink, image } = Astro.props
 ---
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

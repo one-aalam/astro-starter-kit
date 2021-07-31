@@ -1,7 +1,6 @@
 ---
 import Avatar from './Avatar.astro';
-export let names;
-export let avatarType;
+const { names, avatarType } = Astro.props
 ---
 <div class="flex justify-center gap-4">
     {names.map((name) => (

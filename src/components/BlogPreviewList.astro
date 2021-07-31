@@ -1,7 +1,7 @@
 ---
 import BlogPreview from './BlogPreview.astro';
 
-export let posts;
+const { posts } = Astro.props
 ---
 {posts.map((post) => (
     <BlogPreview post={post}/>

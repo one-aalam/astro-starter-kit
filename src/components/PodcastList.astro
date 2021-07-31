@@ -1,7 +1,7 @@
 ---
 import Podcast from './Podcast.astro';
 
-export let podcasts;
+const { podcasts } = Astro.props
 ---
 {podcasts.map((podcast) => (
     <Podcast podcast={podcast}/>

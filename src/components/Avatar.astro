@@ -4,10 +4,12 @@ import { toTitleCase } from '../utils'
 const dicebearBaseUrl = 'https://avatars.dicebear.com/api/'
 const avatarTypes = ['bottts', 'avataaars']
 
-export let name: string;
-export let avatarType: string;
+export type Props = {
+    name: string
+    avatarType: string
+}
+const { name, avatarType } = Astro.props
 
-// Since we're not using Typescript yet, we'll have to rely on runtime checks to prevent errors originating from the passed values
 const getAvatarUrl = (avatarType, name) => `${dicebearBaseUrl}${avatarTypes.indexOf(avatarType) === -1 ? avatarTypes[0] : avatarType}/${name}.svg`
 ---
 <img width="160" src={getAvatarUrl(avatarType, name)} alt={toTitleCase(name)} title={toTitleCase(name)} />

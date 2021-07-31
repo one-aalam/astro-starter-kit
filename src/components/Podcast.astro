@@ -1,5 +1,5 @@
 ---
-export let podcast;
+const { podcast } = Astro.props
 ---
 <h5 class="text-center text-gray-400">{podcast.category}</h5>
 <a class="block text-2xl mb-4" href={podcast.source} target="_blank" title={podcast.name}>{podcast.name}</a>
