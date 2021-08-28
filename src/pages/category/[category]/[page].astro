@@ -1,0 +1,38 @@
+---
+import Markdown from 'astro/components';
+import Page from '../../../layouts/page.astro';
+import BlogPreviewList from '../../../components/BlogPreviewList.astro'
+
+let title = 'Posts by Categories';
+let description = 'All the articles posted so far...';
+
+export async function getStaticPaths({ paginate }) {
+  const allPosts = Astro.fetchContent('../post/*.md');
+  const allCategories = new Set()
+  allPosts.map(post => allCategories.add(post.category.toLowerCase()))
+
+  return Array.from(allCategories).map((category) => {
+    const filteredPosts = allPosts.filter((post) => post.category === category);
+    return paginate(filteredPosts, {
+      params: { category },
+      pageSize: 2
+    });
+  });
+}
+
+const { page } = Astro.props
+const { params } = Astro.request
+---
+
+<Page content={{ title, description, image: page.data[0].image }}>
+    <Markdown>
+        This is a bunch of articles we've posted and linked so far under __{params.category}__.
+    </Markdown>
+    <BlogPreviewList posts={page.data} />
+    <hr class="my-1" />
+    <div class="pagination">
+            {page.url.prev && <a href={page.url.prev} title="previous">&larr; &nbsp; Previous</a>}
+            {page.url.next && <a href={page.url.next} title="next">Next&nbsp; &rarr;</a>}
+    </div>
+    <br/>
+</Page>
